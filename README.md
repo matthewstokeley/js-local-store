@@ -1,6 +1,4 @@
-S collection of classes for working with localStorage as if it were a database.  I have also worked at a grocery store as a manager
-
-@todo rename
+A collection of classes for working with localStorage as if it were a database.  
 
 #### Store.js
 
