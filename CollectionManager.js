@@ -61,8 +61,6 @@ class CollectionManager {
 
 
 
-
-
     /**
      * [findCollectionByName description]
      * @param  {[type]} name [description]

@@ -1,0 +1,1 @@
+This sample library is provided for quickly testing the Asynchronous functions of AsynchronousStore.js
