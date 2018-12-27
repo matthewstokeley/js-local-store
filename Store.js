@@ -154,28 +154,61 @@ class Store {
 
 
     /**
-     * [	 description]
-     * @param  {[type]} db   [description]
-     * @param  {[type]} key  [description]
-     * @param  {[type]} data [description]
-     * @return {[type]}      [description]
+     *
+     * @param  {String} db
+     * @param  {String} key
+     * @param  {Array}  data
+     * @return {Object}
      */
     updateDbByKey(db, key, data) {
     	var value = this.findDbByKey(DATABASE, key);
-    	if (value === false) {
-    		this.createKey(DATABASE, key, data);
-    	} else {
-    		var db = this.findDb(DATABASE);
-
-            for (var i = 0; i < db.length; i++) {
-
-                if (db[i].name === key) {
-                   db[i].data.push(data);
-                }
-            }
-        	this.updateDb(DATABASE, db);		
-    	}
-    	
+    	if (!value) {
+    	    this.createKey(DATABASE, key, data);
+	    return this;
+	}
+	    
+	    
+	    
+	    
+	let var isCollection = (collection) => {
+	    return collection.name === key
+		? true
+		: false
+	}
+	
+	let var findIndex = (collection, index) => {
+	    return collection.name === key
+		? index
+		: undefined
+	}
+	
+	let var clarify = result => {
+	   return result !== undefined
+	        ? true
+	        : false
+	}
+	
+	
+	
+	
+        var db = this.findDb(DATABASE);
+	var update = db.filter(isCollection).map((collection) => {
+            collection.data.push(data)
+	    return collection
+	})
+	
+	var index = db.map(findIndex)
+	    .filter(clarify)
+	
+	
+	
+	
+	
+	db[index] = update
+        this.updateDb(DATABASE, db)
+	    
+	    
+	    
         return this;
     }
 }  
