@@ -2,8 +2,6 @@
  * @todo separation of concerns between collection manager and store
  */
 class Store {
-
-
     /**
      * [constructor description]
      * @param  {[type]} db [description]
@@ -17,10 +15,7 @@ class Store {
             this.createDb(db);
         }
     }
-
-
-
-
+	
     /**
      * [findDb description]
      * @param  {[type]} db [description]
@@ -29,11 +24,7 @@ class Store {
     findDb(db) {
         return JSON.parse(localStorage.getItem(db));
     }
-
-
-
-
-
+	
     /**
      * find the database is a collection key exists
      * @param  {[type]} db  [description]
@@ -48,14 +39,9 @@ class Store {
                 return data;
             }
         }
-
-		return false;
+	return false;
     }
-
-
-
-
-
+	
     /**
      * find the database if  a collection id  exists
      * @param  {[type]} db [description]
@@ -72,10 +58,6 @@ class Store {
         return false;
     }
 
-
-
-
-
     /**
      * [createDb description]
      * @param  {[type]} db [description]
@@ -85,11 +67,7 @@ class Store {
         localStorage.setItem(db, '[]');
         return this;
     }
-
-
-
-
-
+	
     /**
      * [createKey description]
      * @param  {[type]} db   [description]
@@ -107,11 +85,7 @@ class Store {
 		data.push(obj);
     	this.updateDb(db, data);
     }
-
-
-
-
-
+	
     /**
      * [updateDb description]
      * @param  {[type]} db   [description]
@@ -122,11 +96,7 @@ class Store {
         localStorage.setItem(db, JSON.stringify(data));
         return this;
     }
-
-
-
-
-
+	
     /**
      * [deleteDbKeyValue description]
      * loops through all data then removes 
@@ -148,11 +118,6 @@ class Store {
         return this;
     }
 
-
-
-
-
-
     /**
      *
      * @param  {String} db
@@ -166,9 +131,6 @@ class Store {
     	    this.createKey(DATABASE, key, data);
 	    return this;
 	}
-	    
-	    
-	    
 	    
 	let isCollection = (collection) => {
 	    return collection.name === key
@@ -188,9 +150,6 @@ class Store {
 	        : false
 	}
 	
-	
-	
-	
         var db = this.findDb(DATABASE);
 	var update = db.filter(isCollection).map((collection) => {
             collection.data.push(data)
@@ -200,14 +159,8 @@ class Store {
 	var index = db.map(findIndex)
 	    .filter(clarify)
 	
-	
-	
-	
-	
 	db[index] = update
         this.updateDb(DATABASE, db)
-	    
-	    
 	    
         return this;
     }
