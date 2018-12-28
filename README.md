@@ -37,16 +37,22 @@ The `CollectionManager` class is meant to provide a high-level programmatic API 
 
 `create`  
 create a 'collection' or a new table or object within the current database.
+
 ---
 `update`  
 update an existing collection. accepts a `string` and a `data object`
+
 ---
 `delete`  
 delete a collection. accepts a `string`
+
 ---
 `findAll`  
 return all collections in a database
+
 ---
 `findCollectionByName`  
 a kind of wonky method that suggests you use a `name` attribute in collection objects
+
+---
 
