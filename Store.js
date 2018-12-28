@@ -170,19 +170,19 @@ class Store {
 	    
 	    
 	    
-	let var isCollection = (collection) => {
+	let isCollection = (collection) => {
 	    return collection.name === key
 		? true
 		: false
 	}
 	
-	let var findIndex = (collection, index) => {
+	let findIndex = (collection, index) => {
 	    return collection.name === key
 		? index
 		: undefined
 	}
 	
-	let var clarify = result => {
+	let clarify = result => {
 	   return result !== undefined
 	        ? true
 	        : false
