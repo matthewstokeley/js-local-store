@@ -131,7 +131,7 @@ class Store {
     	    this.createKey(DATABASE, key, data);
 	    return this;
 	}
-	    
+      
 	let isCollection = (collection) => {
 	    return collection.name === key
 		? true
