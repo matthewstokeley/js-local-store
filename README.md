@@ -7,10 +7,10 @@ Store.js is a very simple class to provide CRUD methods for the browser's `local
 `localStorage` provides a `key value` store in-browser, but functions differently than either `no-sql` or `sql` databases.  For one, `localStorage` only accepts a `string` for a value.  However, with the help of the `JSON.stringify` method,  a simple `CRUD` API can be implemented which makes working with `localStorage` easier.  There are already several great libraries that do this, however I thought I'd roll my own, as it were - in order to be a better developer.
 
 #### AsynchronousStore.js
-`AsyncStore` shares a hypothetical `interface` with `Store.js` in order to provide the same set of methods, except for working with `ajax` applications.  
+`AsyncStore` shares a hypothetical `interface` with `Store.js` in order to provide the same set of methods.  This allows the user to switch between a relational or no-sql databases and localStorage "on the fly".
 
 #### Manager.js
-The `CollectionManager` class is meant to provide a high-level programmatic API for working with `Store.js`.  There are some naming and redundancy issues in this current version. 
+The `CollectionManager` class is meant to provide a high-level programmatc API for working with `Store.js`.  There are some naming and redundancy issues in this current version. 
 
 #### Example Implementation
 
