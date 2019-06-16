@@ -4,18 +4,18 @@
  */
 class CollectionManager {
     /**
-     * [constructor description]
-     * @param  {[type]} options [description]
-     * @return {[type]}         [description]
+     * 
+     * @param  {String} options
      */
     constructor(options) {
-        this.store = options.store;
+        this.store = options.store || 'database';
     }
 
     /**
-     * [create description]
-     * @param  {[type]} collection [description]
-     * @return {[type]}            [description]
+     * 
+     * @callable
+     * @param  {String} collectionName 
+     * @return {Object}
      */
     create(collection) {
         this.store.updateDbByKey(DATABASE, collection, []);
@@ -25,9 +25,9 @@ class CollectionManager {
 
 
     /**
-     * [delete description]
-     * @param  {[type]} collection [description]
-     * @return {[type]}            [description]
+     * 
+     * @param  {String} collectionName
+     * @return {Object} 
      */
     delete(collection) {
         this.store.deleteDbKeyValue(DATABASE, collection);
@@ -37,34 +37,29 @@ class CollectionManager {
 
 
     /**
-     * [update description]
-     * @param  {[type]} key  [description]
-     * @param  {[type]} data [description]
-     * @return {[type]}      [description]
+     * 
+     * @callable
+     * @param  {String} key
+     * @param  {Object} data
+     * @return {Object}
      */
     update(key, data) {
         this.store.updateDbByKey(DATABASE, key, data);
         return this;
     }
 
-
-
-
-
     /**
-     * [findAll description]
-     * @return {[type]} [description]
+     * 
+     * @return {Object}
      */
     findAll() {
         return this.store.findDb(DATABASE);
     }
-
-
-
+	
     /**
-     * [findCollectionByName description]
-     * @param  {[type]} name [description]
-     * @return {[type]}      [description]
+     * 
+     * @param  {String} name
+     * @return {Object}
      */
     findCollectionByName(name) {
 
@@ -77,6 +72,7 @@ class CollectionManager {
 			this.store.updateDbByKey(DATABASE, name, []);
 			result = this.store.findDbByKey(DATABASE, name);
 		}
+	// wonky
         return result.filter(function(data) { if (data.key === name) { return data} })[0];
     }
 }
