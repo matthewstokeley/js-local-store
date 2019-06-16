@@ -1,16 +1,18 @@
+0.0.3
+
 A collection of classes for working with localStorage as if it were a database.  
 
 #### Store.js
 
 Store.js is a very simple class to provide CRUD methods for the browser's `localStorage` API.  
 
-`localStorage` provides a `key value` store in-browser, but functions differently than either `no-sql` or `sql` databases.  For one, `localStorage` only accepts a `string` for a value.  However, with the help of the `JSON.stringify` method,  a simple `CRUD` API can be implemented which makes working with `localStorage` easier.  There are already several great libraries that do this, however I thought I'd roll my own, as it were - in order to be a better developer.
+`localStorage` provides a `key value` store in-browser, i.e., it is not a `no-sql` or `sql` database.  There are also some interesting limitations of the api - for one, `localStorage` only accepts a `string` value.  However, with the help of the `JSON.stringify` method,  a simple `CRUD` API, inspired by Mongo collections minus the `bson`, can be implemented. In theory, this is supposed to make working with `localStorage` easier, and allow the developer to easily switch between localStorage and a remote database without changing any implementation details.  There are already several great libraries that do this, however I thought I'd roll my own, as it were, in order to be a better developer.
 
 #### AsynchronousStore.js
-`AsyncStore` shares a hypothetical `interface` with `Store.js` in order to provide the same set of methods.  This allows the user to switch between a relational or no-sql databases and localStorage "on the fly".
+`AsyncStore` shares a de facto `interface` with `Store` in order to provide the same set of methods asychronously.   
 
 #### Manager.js
-The `CollectionManager` class is meant to provide a high-level programmatc API for working with `Store.js`.  There are some naming and redundancy issues in this current version. 
+The `CollectionManager` class is meant to provide a high-level programmatc API for working with `Store.js`.  There are some issues implementing patterns correctly in this version, namely - the collection manager is limited to managing a single `Store` instead of multiple `Stores`. 
 
 #### Example Implementation
 
@@ -36,23 +38,23 @@ The `CollectionManager` class is meant to provide a high-level programmatc API f
 #### Collection Manager API Methods
 
 `create`  
-create a 'collection' or a new table or object within the current database.
+Create a 'collection' or a new table or object within the current database.
 
 ---
 `update`  
-update an existing collection. accepts a `string` and a `data object`
+Update an existing collection. accepts a `string` and an `object`
 
 ---
 `delete`  
-delete a collection. accepts a `string`
+Delete a collection. accepts a `string`
 
 ---
 `findAll`  
-return all collections in a database
+Return all collections in a database
 
 ---
 `findCollectionByName`  
-a kind of wonky method that suggests you use a `name` attribute in collection objects
+A kind of wonky method / alias that suggests you use a `name` attribute in collection objects
 
 ---
 
