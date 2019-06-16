@@ -1,19 +1,19 @@
-/* [description]
- * @param  {Array}  ) {               var listeners [description]
- * @return {[type]}   [description]
+/* 
+ * @param  {Array}
+ * @return {Object} 
  */
 var events = (function() {
 
     /**
-     * [listeners description]
+     * 
      * @type {Array}
      */
     var listeners = [];
 
     /**
-     * [addListener description]
-     * @param {[type]}   name     [description]
-     * @param {Function} callback [description]
+     * 
+     * @param {String}   name
+     * @param {Function} callback
      */
     var addListener = function(name, callback) {
 
@@ -25,10 +25,10 @@ var events = (function() {
     };
 
     /**
-     * [emit description]
-     * @param  {[type]} name    [description]
-     * @param  {[type]} context [description]
-     * @return {[type]}         [description]
+     * 
+     * @param  {String} name
+     * @param  {Object} context
+     * @return {Object}
      */
     var emit = function(name, context) {
 
