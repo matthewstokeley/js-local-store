@@ -4,7 +4,7 @@
 class Store {
     /**
      * 
-     * @param  {Object} db
+     * @param  {Object}        db
      */
     constructor(db) {
 
@@ -16,7 +16,7 @@ class Store {
     }
 	
     /**
-     * @param  {Object} db
+     * @param  {Object}        db
      * @return {Object}
      */
     findDb(db) {
@@ -25,8 +25,8 @@ class Store {
 	
     /**
      * find the database is a collection key exists
-     * @param  {String}           db
-     * @param  {String}           key
+     * @param  {String}         db
+     * @param  {String}         key
      * @return {Object|Boolean}
      */
     findDbByKey(db, key) {
@@ -42,8 +42,8 @@ class Store {
 	
     /**
      * find the database if  a collection id  exists
-     * @param  {String}             db
-     * @param  {String}             id
+     * @param  {String}         db
+     * @param  {String}         id
      * @return {Object|Boolean}
      */
     findDbById(db, id) {
@@ -59,7 +59,7 @@ class Store {
     /**
      * 
      * @chainable
-     * @param  {Object}   db
+     * @param  {Object}         db
      * @return {Object}
      */
     createDb(db) {
@@ -68,9 +68,9 @@ class Store {
     }
 	
     /**
-     * @param  {String}     db
-     * @param  {String}     key
-     * @param  {Array}      data
+     * @param  {String}         db
+     * @param  {String}         key
+     * @param  {Array}          data
      */
     createKey(db, key, data) {
     	var data = this.findDb(db);
@@ -86,10 +86,11 @@ class Store {
     }
 	
     /**
-     * [updateDb description]
-     * @param  {[type]} db   [description]
-     * @param  {[type]} data [description]
-     * @return {[type]}      [description]
+     *
+     * @chainable
+     * @param  {String}       db
+     * @param  {Array}        data
+     * @return {Object}
      */
     updateDb(db, data) {
         localStorage.setItem(db, JSON.stringify(data));
@@ -120,9 +121,9 @@ class Store {
 
     /**
      *
-     * @param  {String} db
-     * @param  {String} key
-     * @param  {Array}  data
+     * @param  {String}        db
+     * @param  {String}        key
+     * @param  {Array}         data
      * @return {Object}
      */
     updateDbByKey(db, key, data) {
