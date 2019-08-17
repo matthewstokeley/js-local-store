@@ -3,9 +3,8 @@
  */
 class Store {
     /**
-     * [constructor description]
-     * @param  {[type]} db [description]
-     * @return {[type]}    [description]
+     * 
+     * @param  {Object} db
      */
     constructor(db) {
 
@@ -17,9 +16,8 @@ class Store {
     }
 	
     /**
-     * [findDb description]
-     * @param  {[type]} db [description]
-     * @return {[type]}    [description]
+     * @param  {Object} db
+     * @return {Object}
      */
     findDb(db) {
         return JSON.parse(localStorage.getItem(db));
@@ -27,9 +25,9 @@ class Store {
 	
     /**
      * find the database is a collection key exists
-     * @param  {[type]} db  [description]
-     * @param  {[type]} key [description]
-     * @return {[type]}     [description]
+     * @param  {String}           db
+     * @param  {String}           key
+     * @return {Object|Boolean}
      */
     findDbByKey(db, key) {
         var data = this.findDb(db);
@@ -44,9 +42,9 @@ class Store {
 	
     /**
      * find the database if  a collection id  exists
-     * @param  {[type]} db [description]
-     * @param  {[type]} id [description]
-     * @return {[type]}    [description]
+     * @param  {String}             db
+     * @param  {String}             id
+     * @return {Object|Boolean}
      */
     findDbById(db, id) {
         var data = this.findDb(db);
@@ -59,9 +57,10 @@ class Store {
     }
 
     /**
-     * [createDb description]
-     * @param  {[type]} db [description]
-     * @return {[type]}    [description]
+     * 
+     * @chainable
+     * @param  {Object}   db
+     * @return {Object}
      */
     createDb(db) {
         localStorage.setItem(db, '[]');
@@ -69,11 +68,9 @@ class Store {
     }
 	
     /**
-     * [createKey description]
-     * @param  {[type]} db   [description]
-     * @param  {[type]} key  [description]
-     * @param  {[type]} data [description]
-     * @return {[type]}      [description]
+     * @param  {String}     db
+     * @param  {String}     key
+     * @param  {Array}      data
      */
     createKey(db, key, data) {
     	var data = this.findDb(db);
@@ -84,6 +81,8 @@ class Store {
         obj.id = data.length + 1;
 		data.push(obj);
     	this.updateDb(db, data);
+	   
+	return null;
     }
 	
     /**
@@ -98,13 +97,14 @@ class Store {
     }
 	
     /**
-     * [deleteDbKeyValue description]
+     *
      * loops through all data then removes 
      * the matching key
      * @todo  refactor
-     * @param  {[type]} db  [description]
-     * @param  {[type]} key [description]
-     * @return {[type]}     [description]
+     * @chainable
+     * @param  {String} db
+     * @param  {String} key
+     * @return {Object}
      */
     deleteDbKeyValue(db, key) {
         var data = this.findDb();
