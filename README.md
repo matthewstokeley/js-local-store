@@ -6,7 +6,7 @@ A collection of classes for working with localStorage as if it were a database.
 
 Store.js is a very simple class to provide CRUD methods for the browser's `localStorage` API.  
 
-`localStorage` provides a `key value` store in-browser, i.e., it is not a `no-sql` or `sql` database.  There are also some interesting limitations of the api - for one, `localStorage` only accepts a `string` value.  However, with the help of the `JSON.stringify` method,  a simple `CRUD` API, inspired by Mongo collections minus the `bson`, can be implemented. In theory, this is supposed to make working with `localStorage` easier, and allow the developer to easily switch between localStorage and a remote database without changing any implementation details.  There are already several great libraries that do this, however I thought I'd roll my own, as it were, in order to be a better developer.
+`localStorage` provides a `key value` store in-browser, i.e., it is not a `no-sql` or `sql` database.  
 
 #### AsynchronousStore.js
 `AsyncStore` shares an implicit `interface` with `Store` in order to provide the same set of methods asychronously.   
