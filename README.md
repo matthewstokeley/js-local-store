@@ -46,15 +46,14 @@ Update an existing collection. accepts a `string` and an `object`
 
 ---
 `delete`  
-Delete a collection. accepts a `string`
+Delete a collection. Accepts a `string`
 
 ---
 `findAll`  
 Return all collections in a database
 
 ---
-`findCollectionByName`  
-A kind of wonky method / alias that suggests you use a `name` attribute in collection objects
+`findCollectionByName`
 
 ---
 
